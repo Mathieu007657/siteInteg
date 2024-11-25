@@ -1,0 +1,122 @@
+/* Style global */
+body {
+    font-family: 'Permanent Marker', cursive; 
+    color: #f4f4f4;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Permanent Marker', cursive; 
+    text-align: center;
+    color: #e63946;
+    margin-bottom: 20px;
+}
+
+p {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+/* En-tête */
+.header {
+    background: #000000;
+    padding: 20px 0;
+    border-bottom: 2px solid #e63946;
+}
+
+/* Section Vidéo */
+.video-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.video-section video {
+    width: 80%;
+    max-width: 600px;
+    border: 3px solid #e63946;
+    border-radius: 10px;
+}
+
+/* Section Description */
+.description-section {
+    background: #121212;
+    padding: 40px 20px;
+    margin-top: 20px;
+    border-top: 2px solid #e63946;
+}
+
+/* Section Galerie */
+.gallery-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #e63946;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* Section Équipe */
+.team-section {
+    background: #121212;
+    padding: 40px 20px;
+    margin-top: 20px;
+}
+
+.team {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #e63946;
+    margin-bottom: 10px;
+}
+
+.team-member h3 {
+    margin: 10px 0 5px;
+    color: #f4f4f4;
+}
+
+.team-member p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #cccccc;
+}
+
+/* Pied de page */
+.footer {
+    background: #000000;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 2px solid #e63946;
+}
