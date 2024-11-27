@@ -16,10 +16,15 @@
         <!-- Section Vidéo -->
         <section class="video-section">
             <h2>Découvrez notre jeu</h2>
-            <video controls>
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la vidéo.
-            </video>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/ZlPUb8NB46E" 
+                    title="Vidéo de présentation de Dans le Noère" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>         
         </section>
 
         <!-- Section Description -->
@@ -28,7 +33,7 @@
             <p>
                 Dans le Noère est un jeu d'horreur immersif où vous incarnez un patient piégé dans un hôpital sombre.
                 Trouvez des indices, résolvez des énigmes, et échappez aux monstres qui rôdent. Les mécaniques incluent 
-                la gestion de la lumière, la sanité mentale, et des changements de terrain aléatoires pour désorienter le joueur.
+                la gestion de la lumière, la santé mentale, et des changements de terrain aléatoires pour désorienter le joueur.
             </p>
         </section>
 
@@ -36,35 +41,55 @@
         <section class="gallery-section">
             <h2>Galerie</h2>
             <div class="gallery">
-                <img src="https://picsum.photos/300/200?random=1" alt="Screenshot 1">
-                <img src="https://picsum.photos/300/200?random=2" alt="Screenshot 2">
-                <img src="https://picsum.photos/300/200?random=3" alt="Screenshot 3">
+                <img src="images/game1.png" alt="Screenshot 1" data-image="0">
+                <img src="images/game2.png" alt="Screenshot 2" data-image="1">
+                <img src="images/game3.png" alt="Screenshot 3" data-image="2">
             </div>
-        </section>
+        </section>        
 
         <!-- Section Équipe -->
         <section class="team-section">
             <h2>Équipe de développement</h2>
             <div class="team">
                 <div class="team-member">
-                    <img src="https://picsum.photos/100?random=4" alt="Membre 1">
+                    <img src="images/mathieu.jpeg" alt="Membre 1">
                     <h3>Mathieu Lavallée</h3>
-                    <p>Rôle</p>
+                    <p>Rôle:</p>
+                    <ul>
+                        <li>Ennemis</li>
+                        <li>Flashlight</li>
+                        <li>Safezones</li>
+                    </ul> 
                 </div>
                 <div class="team-member">
-                    <img src="https://picsum.photos/100?random=5" alt="Membre 2">
+                    <img src="images/kemy.jpg" alt="Membre 2">
                     <h3>Kémy Jean-Charles</h3>
-                    <p>Rôle</p>
+                    <p>Rôle:</p>
+                    <ul>
+                        <li>Animations</li>
+                        <li>UI</li>
+                        <li>Personnages</li>
+                    </ul> 
                 </div>
                 <div class="team-member">
-                    <img src="https://picsum.photos/100?random=6" alt="Membre 3">
+                    <img src="images/thierry.jpg" alt="Membre 3">
                     <h3>Thierry Becker</h3>
-                    <p>Rôle</p>
+                    <p>Rôle:</p>
+                    <ul>
+                        <li>Caméra + mouvements personnage</li>
+                        <li>Follower (ennemi)</li>
+                        <li>Système d'interactions</li>
+                    </ul> 
                 </div>
                 <div class="team-member">
-                    <img src="https://picsum.photos/100?random=7" alt="Membre 4">
+                    <img src="images/pat.jpg" alt="Membre 4">
                     <h3>Patrick Nadeau-Allard</h3>
-                    <p>Rôle</p>
+                    <p>Rôle:</p>
+                    <ul>
+                        <li>Map</li>
+                        <li>Système de Dialogues</li>
+                        <li>Documentation</li>
+                    </ul> 
                 </div>
             </div>
         </section>

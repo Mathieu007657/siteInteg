@@ -21,6 +21,12 @@ p {
     text-align: center;
 }
 
+ul {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    text-align: left;
+}
+
 /* En-tête */
 .header {
     background: #000000;
@@ -34,12 +40,14 @@ p {
     text-align: center;
 }
 
-.video-section video {
-    width: 80%;
-    max-width: 600px;
+.video-section iframe {
+    width: 60%; /* Augmenter la largeur */
+    max-width: 900px; /* Limiter la largeur */
+    height: 500px; /* Ajuster la hauteur pour qu'elle soit plus grande */
     border: 3px solid #e63946;
     border-radius: 10px;
 }
+
 
 /* Section Description */
 .description-section {
@@ -119,4 +127,52 @@ p {
     text-align: center;
     padding: 10px 0;
     border-top: 2px solid #e63946;
+}
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 2px solid #e63946;
+    border-radius: 10px;
+}
+
+.lightbox .close, .lightbox .prev, .lightbox .next {
+    position: absolute;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.lightbox .close {
+    top: 20px;
+    right: 20px;
+}
+
+.lightbox .prev {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+.lightbox .next {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
 }

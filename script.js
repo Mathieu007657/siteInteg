@@ -1,12 +1,11 @@
-let isUserInteracting = false; // Indique si l'utilisateur interagit
-const scrollSpeed = 30; // Pixels par étape (valeur réduite pour une transition plus fluide)
-const scrollDelay = 16; // Délai entre les étapes (environ 60 fps pour fluidité)
-const interactionTimeout = 3000; // Temps d'inactivité avant de relancer le défilement automatique
+let isUserInteracting = false; 
+const scrollSpeed = 30; 
+const scrollDelay = 0.00001; //faire en sorte qu'il soit fait plus rapidement
+const interactionTimeout = 3000; 
 
-let scrollInterval; // Intervalle pour le défilement automatique
-let userInteractionTimeout; // Timeout pour relancer le défilement après interaction
+let scrollInterval; 
+let userInteractionTimeout;
 
-// Fonction pour effectuer un défilement automatique
 function autoScroll() {
     if (!isUserInteracting) {
         const scrollPosition = window.scrollY;
@@ -14,46 +13,95 @@ function autoScroll() {
         const documentHeight = document.body.scrollHeight;
 
         if (scrollPosition + windowHeight < documentHeight - 1) {
-            // Défilement fluide vers le bas
             window.scrollBy({
                 top: scrollSpeed,
                 behavior: "smooth",
             });
         } else {
-            // Bas atteint, retour fluide en haut
-            clearInterval(scrollInterval); // Arrêter le défilement temporairement
+            clearInterval(scrollInterval); 
             window.scrollTo({
                 top: 0,
                 behavior: "smooth",
             });
             setTimeout(() => {
-                startAutoScroll(); // Reprendre le défilement après un délai
-            }, 500); // Temps avant de recommencer à défiler
+                startAutoScroll();
+            }, 500); 
         }
     }
 }
 
-// Fonction pour arrêter temporairement le défilement automatique
+
 function stopAutoScroll() {
     isUserInteracting = true;
     clearInterval(scrollInterval);
     clearTimeout(userInteractionTimeout);
 
-    // Redémarrer le défilement automatique après un délai d'inactivité
+
     userInteractionTimeout = setTimeout(() => {
         isUserInteracting = false;
         startAutoScroll();
     }, interactionTimeout);
 }
 
-// Fonction pour démarrer le défilement automatique
+
 function startAutoScroll() {
     scrollInterval = setInterval(autoScroll, scrollDelay);
 }
 
-// Détecter l'interaction utilisateur
+
 window.addEventListener("scroll", stopAutoScroll);
 window.addEventListener("mousemove", stopAutoScroll);
 
-// Lancer le défilement automatique au chargement de la page
+
 startAutoScroll();
+
+document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll(".gallery img");
+    const lightbox = document.createElement("div");
+    lightbox.className = "lightbox";
+    lightbox.innerHTML = `
+        <button class="close">&times;</button>
+        <button class="prev">&laquo;</button>
+        <img src="" alt="Lightbox Image">
+        <button class="next">&raquo;</button>
+    `;
+    document.body.appendChild(lightbox);
+
+    const lightboxImage = lightbox.querySelector("img");
+    const closeBtn = lightbox.querySelector(".close");
+    const prevBtn = lightbox.querySelector(".prev");
+    const nextBtn = lightbox.querySelector(".next");
+
+    let currentIndex = 0;
+
+    // Open lightbox
+    images.forEach((img, index) => {
+        img.addEventListener("click", () => {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.style.display = "flex";
+        });
+    });
+
+    // Close lightbox
+    closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+    });
+
+    // Navigate lightbox
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateLightbox();
+    });
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateLightbox();
+    });
+
+    // Update lightbox image
+    function updateLightbox() {
+        lightboxImage.src = images[currentIndex].src;
+        lightboxImage.alt = images[currentIndex].alt;
+    }
+});
